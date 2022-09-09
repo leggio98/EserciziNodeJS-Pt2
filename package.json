@@ -2,17 +2,20 @@
   "name": "dh_api-project",
   "scripts": {
     "test": "jest"
+
   },
   "engines": {
-    "node":">=16"
+    "node": ">=16"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AndreaBarberio/DH_api-project.git"
   },
-
   "bugs": {
     "url": "https://github.com/AndreaBarberio/DH_api-project/issues"
   },
-  "homepage": "https://github.com/AndreaBarberio/DH_api-project#readme"
+  "homepage": "https://github.com/AndreaBarberio/DH_api-project#readme",
+  "devDependencies": {
+    "jest": "^29.0.2"
+  }
 }
