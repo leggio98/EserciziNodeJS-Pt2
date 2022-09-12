@@ -1,0 +1,26 @@
+To create a server with wxpress we need to install it
+
+$ npm install express
+
+we are going to installe type for express so
+
+$ npm install --save-dev @types/express
+
+an another package we have to install is ExpressJS Async Errors
+
+it is important bcause provides safety in using promises, async/await
+$ npm install express-async-errors
+
+
+let's initialize, defining our first root: in express
+
+it means app.get, which is the method to call a request
+encoding "/" passing then a callback function, and it is a root handler
+passing request and response, this function will run a requestwhich comes in for slash root
+on our api using get http method
+
+we are sending back the response, sending message "up and running
+
+defining a variable which is the port, we can define where our server gonna run
+adding a listen() we can link our port to make the app.listen to the port we set
+
