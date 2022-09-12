@@ -24,3 +24,75 @@ we are sending back the response, sending message "up and running
 defining a variable which is the port, we can define where our server gonna run
 adding a listen() we can link our port to make the app.listen to the port we set
 
+RUN A SERVER IN DEVELOPMENT
+We know we can run our server with
+node dist/server.js
+and opening a splitted terminal we can make a request interrogating it with
+curl localhost:3000 -v
+getting back the message we set on the root path with
+
+
+
+app.get("/", (request, response) => {
+    response.send("This is the Space Facts API!");
+});
+
+
+changing the message and saving it, we will still have the first message in our terminalbecause of
+when node.js starts up it loads in the js code and it ndoesnt know how to automatically reload
+that, that's just not how node korks
+
+when we make changes we need to automatically recompile our ts code and restart our js process
+running at our js code
+
+to do that
+
+we need to stop our server
+and we need to run build again
+and then we will run our server with node dist/server.js
+
+to automate these steps we need to
+open up our package.json
+and add a new build dev script
+moving the build script down to the bottom of its object
+and add a "build:dev" script with a "tsc --watch" option in it
+
+so let's close our terminals, opening a new one running our new script
+
+so now if we make changes tsc is watching but we almost need to automatically restart our code to be updated everytime we make changes
+
+to do that
+
+we need to create a start script
+so this one will be running the node server passing through enabling source maps
+so that node.js can use it and correctly understand where our code is running
+or where it came from the original typescript wit
+
+"script": "node --enable-source-maps dist/server.js"
+
+so this is our starting server script
+
+now we will stop ts compiler
+and starting it, it will not automatically do that
+
+to automatically restart it we need to use nodemon
+installing it as a devdep with
+npm i --save-dev nodemon
+to use it we're going to create a new runscript which has to run nodemon watching dist directory
+"start:dev " : "nodemon --watch dist/"
+we need to install an another package called concurrently
+allows us to run more commands at the same time
+
+so
+
+npm install --save-dev concurrently
+
+once we installed it lets create another script
+called dev, which will say npm run build && concurrently 'npm:build:dev' 'npm:start:dev'
+
+so let's try it typing
+
+     npm run dev
+
+we'll se anything running and we can see that when the output comes out from
+those commands these runscripts 
