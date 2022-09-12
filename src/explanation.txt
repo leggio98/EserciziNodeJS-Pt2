@@ -95,4 +95,35 @@ so let's try it typing
      npm run dev
 
 we'll se anything running and we can see that when the output comes out from
-those commands these runscripts 
+those commands these runscripts
+
+ADD A NEW ROUTE
+
+ let's run npm run dev
+
+ to make oure app testable we need to split things out a bit
+ so currently it is everything in a server.ts file,
+ let's create a new file in our src folder calld app.ts
+ and from server.ts we gonna take out everything we have in here
+ apart from the listening code
+
+ so we cut
+ `import express from "express";
+import "express-async-errors";
+
+const app = express();
+
+app.get("/", (request, response) => {
+    response.send("This is the Space Facts APi, by Andrea Barberio!");
+});
+`
+pasting it into app.ts
+when we made this we gonna make sure to export defaultly our app with export default app in app.ts
+so that app instance declared in const app = express()
+we're exporting that from this file
+and by doing it we are going into sever.ts
+and import that app from ./app  so let's test it splitting the terminal asking for curl verbose request
+
+for now we can stop and save changes adding and committing
+
+
