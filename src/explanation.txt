@@ -160,3 +160,36 @@ Environment variables are named values
 that can be used to affect the way  a pc process runs
 
 if we, in our terminal, type env (environment abbreviation)
+we'll get a list of all the environment variables that exist in our shell env
+these all different key and values as a name somth can be used and picked ip
+by our pc to change the way they behave
+now we can acces to these in node js
+if we go and run
+
+npm run dev
+to start up our server and take a look at server.ts at how to call environment
+at the end of our file we put a log  wit process.env
+if we save those changes we gonna log it in our terminal dev area
+we can configure our app because we now have the access to it
+
+let's undo the log
+stop the server and create an .env file which is conventional way in developmente to configure apps
+and in that .env file we gonna write PORT= 3000 which port is the variable name and <3000> is the value of PORT
+TO READ THIS FILE WE NEED A PACKAGE CALLED DOTENV
+
+IT CAN READ IN the .env file in development and it make them available
+in that process.env object we just saw
+
+so
+npm install dotenv
+
+now we can actually start up our server
+in our server.ts we need to import dotenv/config
+that whould automatically go ahead and read the file
+
+what we can do is going to change our server.ts
+ code in the port and specify ITwe have even to update start:dev script whic needs to --watch .env too
+if we now save, stop the server and start up the server again, maybe changing the port in .env it will be listening on the specified one
+
+so lets add . and commit :D
+
