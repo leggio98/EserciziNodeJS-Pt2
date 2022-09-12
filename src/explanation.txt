@@ -126,4 +126,37 @@ and import that app from ./app  so let's test it splitting the terminal asking f
 
 for now we can stop and save changes adding and committing
 
+to test we need to use supertest so lets npm install supertest as a devdep so adding --save-dev
 
+after that we can import it in our server.test.ts and importing app too,
+declaring a request for app to be tested by supertest
+
+now let's create a test for a new root in server.test.ts
+which accept the metod request and the root path as first parameter as string
+and as a second parameter an async function that is gonna test the async request awaiting it
+adding a .get(wit the root point we wanna test )
+
+we gonna expect it returns 200 http status code
+we gonna expect it returns "Content-Type",
+and check for /application\/json/
+with a specific kind of pattern that allows us not to specify
+the whole value of the content type response header ù
+a REGULAR EXPRESSION pattern WHICH ALLOW US TO FIND A MATCH AND WXPECT ANY STRING THAT CONTAINS THAT VALUE
+we can even say we expect the body response to be an object with certain values like
+
+
+SPLIT
+we can splitt the test in app.ts, to do that we need to change the path in app from / to /planets
+we're gonna replace response.send with response.json
+which is proveded by express
+
+then gonna copy the objet expected in response.ody from server.test.ts
+and paste it into response.json
+
+npow if we run our test everything will past
+
+CONFIGURE app
+Environment variables are named values
+that can be used to affect the way  a pc process runs
+
+if we, in our terminal, type env (environment abbreviation)
