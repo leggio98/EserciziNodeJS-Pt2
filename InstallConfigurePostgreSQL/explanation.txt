@@ -1,0 +1,41 @@
+
+PRISMA IS  a node.js and typescript orm
+this means it can actually work with different types of database systems as others (mysql, sqlserver, sqllite and mongodb)
+
+ther all are supported by prisma
+
+
+let's first install the prisma client
+and so we'll copy that package name and in vsc terminal type
+npm install and we're going to install that package
+
+npm install @prisma/client
+
+we're also gonna install prisma cli which is gonna help us as we eork
+with prisma and as we use different features
+
+npm install --save-dev prisma
+
+now that cli is installed qe can
+npx prisma init
+to run it
+
+automatically we gonna have a prisma dirrectory created
+
+with schema.prisma
+
+here we gonna configure anything we need for our prisma setup , telling our
+prisma how to connect with our database
+and later we'l be adding new info
+we now have the default setup to use postgres
+ad we have the url where it's acutally require environment variable
+
+we now in our .env file
+can se the edited file by prisma, we can delete the comments and
+look at what has been put in that file:
+we're going to be connected with postgres
+and we can change te username jon doe with our development username putting our
+password afterit and set the port postgres database server is listening on
+our database called space_facts and we can leave schema=public
+to have DATABASE_URL="postgresql://AndreaBarberio:password@localhost:3000/space_facts?schema=public"
+
