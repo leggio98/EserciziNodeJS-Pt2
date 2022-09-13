@@ -7,8 +7,8 @@ test("GET /planets", async () => {
         .get("./planets")
         .expect(200)
         .expect("Content-Type", /application\/json/);
-});
-expect(response.body).toEqual([
+       
+        expect(response.body).toEqual([
     {
         name: "Mercury",
     },
@@ -16,3 +16,5 @@ expect(response.body).toEqual([
         name: "Venus",
     },
 ]);
+});
+

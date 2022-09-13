@@ -1,29 +1,55 @@
 module.exports = {
-    root: true,
     env: {
-        node: true,
+      browser: true,
+      node: true,
+      jest: true
     },
     extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    overrides: [
+      {
+        files: [
+          "*.ts"
+        ],
+        rules: {
+          "no-undef": [
+            "off",
+            {
+              typeof: false
+            }
+          ]
+        }
+      },
+      {
+        files: [
+          "*.test.ts"
+        ],
+        rules: {},
+        env: {
+          jest: true,
+          node: true
+        }
+      }
     ],
     parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint"],
-    overrides: [
-        {
-            files: ["*.ts"],
-            rules: {
-                "no-undef": "off",
-            },
-        },
-        {
-            files: ["*.test.ts"],
-            env: {
-                node: true,
-                jest: true,
-            },
-        },
+    parserOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module"
+    },
+    plugins: [
+      "@typescript-eslint"
     ],
-    rules: { "@typescript-eslint/ban-ts-comment": "off" }
-};
+    rules: {
+      "@typescript-eslint/ban-ts-comment": [
+        "off"
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "off"
+      ],
+      "@typescript-eslint/no-var-requires": [
+        "off"
+      ]
+    }
+  };
