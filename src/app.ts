@@ -15,7 +15,7 @@ app.get("/planets", (request, response) => {
     );
 });
 
-// MODIFY IT INTO
+// Request examples
 
 // //GET /planets  - retrieve all the planets
 // app.get("/planets", (request, response) => {});
