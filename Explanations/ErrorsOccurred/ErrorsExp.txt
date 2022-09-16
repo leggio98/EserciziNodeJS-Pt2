@@ -1,0 +1,29 @@
+it is Possible to have errors like
+
+`
+Invalid `prisma.planet.findMany()` invocation in
+[start:dev] C:\Users\HP\OneDrive\Desktop\DevelHope1.0\DH_NodeJS\DH_NodeJS-Lessons\SetupANewNodeJSProject\DH_api-project\src\app.ts:11:41
+[start:dev]
+[start:dev]    8
+[start:dev]    9 app.get("/planets", async (request, response) => {
+[start:dev]   10
+[start:dev] → 11     const planets = await prisma.planet.findMany(
+[start:dev] Authentication failed against database server at `localhost`, the provided database credentials for `andrea` are not valid.
+[start:dev]
+[start:dev] Please make sure to provide valid database credentials for the database server at `localhost`.
+[start:dev]     at RequestHandler.handleRequestError (C:\Users\HP\OneDrive\Desktop\DevelHope1.0\DH_NodeJS\DH_NodeJS-Lessons\SetupANewNodeJSProject\DH_api-project\node_modules\@prisma\client\runtime\index.js:29915:13)
+[start:dev]     at RequestHandler.request (C:\Users\HP\OneDrive\Desktop\DevelHope1.0\DH_NodeJS\DH_NodeJS-Lessons\SetupANewNodeJSProject\DH_api-project\node_modules\@prisma\client\runtime\index.js:29892:12)
+[start:dev]     at async PrismaClient._request (C:\Users\HP\OneDrive\Desktop\DevelHope1.0\DH_NodeJS\DH_NodeJS-Lessons\SetupANewNodeJSProject\DH_api-project\node_modules\@prisma\client\runtime\index.js:30864:16)
+[start:dev] [nodemon] starting `node --enable-source-maps dist/server.js`
+[start:dev] {server}Server is running at http://localhost3000
+[start:dev] Terminare il processo batch (S/N)? Terminare il processo batch (S/N)?
+npm run build:dev exited with code 1
+[start:dev] npm run start:dev exited with code 1
+`
+
+Ensure to run
+1) sudo service postgresql start
+2) run build dev
+3) if continues giving error, be sure to have no mispells in
+   .env,
+4) if still getting errors be sure you are running it in WSL Ubuntu VM only

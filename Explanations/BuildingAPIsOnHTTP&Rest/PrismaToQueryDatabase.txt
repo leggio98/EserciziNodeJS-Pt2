@@ -1,0 +1,51 @@
+Integrate a Prisma Client into our app and use it to query database
+
+In order to use Prisma client we first need to import it
+so lets go in app.ts and let's do it
+we can chek if it is in our p.json as a dependency
+
+so we now want to creat a new instance of prisma client so
+let's initialize a variable called prisma and usin new keyword let's say
+
+new Prisma Client
+
+that gives us a prisma client wchich allows us now to go and querying against database
+
+so we will replace the handler that we have created
+
+`
+ response.json([
+        {
+            name: "Mercury",
+        },
+
+        {
+            name: "Venus",
+        }]
+    );
+`
+
+SO IT GETS RECORDS FROM OUR DATABASE
+
+so let's initialise planets variable equal to awaiting planets from prisma,
+with dot notation, so
+
+const planets = await prisma.planet.findMany()
+
+the prisma client has types that are generated when we add models
+that means that it updates and we get all this kind of rich type hinting and type checking
+adding findMany() which is a method that pullback more than one record, so all the planet that we have
+
+then we're going to send back that planet there shpuld
+be an array of planets that is send back as a response body
+asking to be formatted as json
+
+using await gets an error because it needs to be inside of
+an async function,
+so let's make it async by adding before the parameters in the app.get function callback
+
+so now we can save, open postman and make a test request to it
+
+creating a new collection 
+
+
