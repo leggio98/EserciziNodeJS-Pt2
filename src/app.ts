@@ -1,13 +1,9 @@
 import express from "express";
 import "express-async-errors";
-import { PrismaClient } from "@prisma/client";
-
+import prisma from "./lib/prisma/client";
 const app = express();
-const prisma = new PrismaClient(); 
-
 
 app.get("/planets", async (request, response) => {
-   
     const planets = await prisma.planet.findMany();
 
     response.json(planets);
@@ -34,3 +30,4 @@ app.get("/planets", async (request, response) => {
 // app.post("/planets/:id/photo", (request, response)=>{})
 
 export default app;
+
