@@ -1,14 +1,13 @@
 import supertest from "supertest";
 import app from "./app";
 import { prismaMock } from "./lib/prisma/client.mock";
-
 const request = supertest(app);
-
 test("GET /planets", async () => {
     const planets = [
         {
             id: 1,
             name: "Mercury ",
+            name: "Mercury",
             description: "Solar System First planet",
             diameter: 1234,
             moons: 1545,
@@ -25,15 +24,27 @@ test("GET /planets", async () => {
             updateAt: "2022-09-16T09:50:41.239Z",
         },
     ];
-
     //@ts-ignore
     prismaMock.planet.findMany.mockResolvedValue(planets);
-
     const response = await request
         .get("/planets")
         .expect(200)
         .expect("Content-Type", /application\/json/);
-
     expect(response.body).toEqual(planets);
 });
 
+test("POST /planets", async () => {
+    const planet = {
+        name: "Mercury",
+        diameter: 1234,
+        moons: 1545,
+    };
+
+    const response = await request
+        .post("/planets")
+        .send(planet)
+        .expect(201)
+        .expect("Content-Type", /application\/json/);
+
+    expect(response.body).toEqual(planet);
+});
